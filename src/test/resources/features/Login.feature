@@ -3,7 +3,7 @@ Feature: Login Functionality
 Scenario: Login with valid credential
 Given User have navigate to login page
 When User has enter valid email address "manoharkantjoshi@gmail.com"
-And User has enter valid passsword "12346"
+And User has enter valid passsword "Admin@123"
 And User click on login button
 Then User should get successfully login
 
