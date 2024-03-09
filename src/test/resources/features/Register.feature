@@ -5,7 +5,7 @@ Given User Navigate to Register Account Page
 When user enters below details into the fields
 |firstname                      |Manohar|
 |lastname                       |Joshi|
-|email                          |manohrakantjoshi@gmail.com|
+|email                          |manohrakantjoshi1122@gmail.com|
 |telephone                      |1234567890|
 |password                       |12345|
 |confirmPassowrd                |12345|
@@ -18,7 +18,7 @@ Given User Navigate to Register Account Page
 When user enters below details into the fields
 |firstname                      |Manohar|
 |lastname                       |Joshi|
-|email                          |manohrakantjoshi@gmail.com|
+|email                          |manohrakantjoshi1234@gmail.com|
 |telephone                      |1234567890|
 |password                       |12345|
 |confirmPassowrd                |12345|

@@ -1,35 +1,18 @@
 package stepdefinition;
 
-import java.time.Duration;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
+import factory.DriverFactory;
 import io.cucumber.java.en.*;
 
 public class Login {
+
 	WebDriver driver;
-
-	@Before
-	public void setup() {
-		driver = new ChromeDriver();
-		driver.manage().deleteAllCookies();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-		driver.get("https://tutorialsninja.com/demo/");
-	}
-
-	@After
-	public void teardown() {
-		driver.quit();
-	}
 
 	@Given("User have navigate to login page")
 	public void user_have_navigate_to_login_page() {
+		driver = DriverFactory.getDriver();
 		driver.findElement(By.xpath("//a[contains(@title,\"My Account\")]")).click();
 		driver.findElement(By.linkText("Login")).click();
 	}
