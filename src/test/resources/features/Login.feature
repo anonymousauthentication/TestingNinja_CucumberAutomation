@@ -9,7 +9,7 @@ Then User should get successfully login
 
 Scenario: Login with invalid credential
 Given  User have navigate to login page
-When User have enter invalid email "manoharkantjoshi11@gmail.com"
+When User have enter invalid email
 And User have enter invalid password "abcdef"
 And User click on login button
 Then User should get a warning message

@@ -1,5 +1,7 @@
 package stepdefinition;
 
+import java.util.Date;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -38,9 +40,9 @@ public class Login {
 		Assert.assertTrue(b);
 	}
 
-	@When("User have enter invalid email {string}")
-	public void user_have_enter_invalid_email(String email) {
-		driver.findElement(By.id("input-email")).sendKeys(email);
+	@When("User have enter invalid email")
+	public void user_have_enter_invalid_email() {
+		driver.findElement(By.id("input-email")).sendKeys(getEmailWithTimeStamp());
 	}
 
 	@When("User have enter invalid password {string}")
@@ -63,5 +65,10 @@ public class Login {
 	public void user_dont_enter_any_thing_in_input_field() {
 		driver.findElement(By.id("input-email")).sendKeys("");
 		driver.findElement(By.id("input-password")).sendKeys("");
+	}
+	
+	public String getEmailWithTimeStamp() {
+		Date date = new Date();
+	  return	"manoharkantjoshi@"+date.toString().replace(" ", "_").replace(":", "_")+"@gmail.com";
 	}
 }

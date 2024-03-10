@@ -38,7 +38,13 @@ public class Search {
 
 	@Then("Proper text information the user about no  product matching should be displayed.")
 	public void proper_text_information_the_user_about_no_product_matching_should_be_displayed() {
-		Assert.assertTrue(driver.findElement(By.cssSelector("h2 p")).getText()
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Assert.assertTrue(driver.findElement(By.cssSelector("h2 ~ p")).getText()
 				.contains("There is no product that matches the search criteria."));
 	}
 

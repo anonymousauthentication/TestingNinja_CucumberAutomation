@@ -5,7 +5,6 @@ Given User Navigate to Register Account Page
 When user enters below details into the fields
 |firstname                      |Manohar|
 |lastname                       |Joshi|
-|email                          |manohrakantjoshi1122@gmail.com|
 |telephone                      |1234567890|
 |password                       |12345|
 |confirmPassowrd                |12345|
@@ -18,7 +17,6 @@ Given User Navigate to Register Account Page
 When user enters below details into the fields
 |firstname                      |Manohar|
 |lastname                       |Joshi|
-|email                          |manohrakantjoshi1234@gmail.com|
 |telephone                      |1234567890|
 |password                       |12345|
 |confirmPassowrd                |12345|
@@ -37,7 +35,7 @@ Then Error validation message should come be displayed for all the mandetory fie
 
 Scenario: Register with dupicate email address
 Given User Navigate to Register Account Page
-When user enters below details into the fields
+When user enters below details into the fields with duplicate email
 |firstname                      |Manohar|
 |lastname                       |Joshi|
 |email                          |manohrakantjoshi@gmail.com|
