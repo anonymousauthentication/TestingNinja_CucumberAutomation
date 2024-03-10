@@ -1,7 +1,6 @@
 package stepdefinition;
 
 import java.util.Date;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -69,6 +68,6 @@ public class Login {
 	
 	public String getEmailWithTimeStamp() {
 		Date date = new Date();
-	  return	"manoharkantjoshi@"+date.toString().replace(" ", "_").replace(":", "_")+"@gmail.com";
+	    return	"manoharkantjoshi@"+date.toString().replace(" ", "_").replace(":", "_")+"@gmail.com";
 	}
 }

@@ -1,16 +1,11 @@
 package stepdefinition;
 
 import io.cucumber.java.en.*;
-
-import static org.testng.Assert.ARRAY_MISMATCH_TEMPLATE;
-
 import java.util.Date;
 import java.util.Map;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-
 import factory.DriverFactory;
 import io.cucumber.datatable.DataTable;
 
@@ -29,7 +24,6 @@ public class Register {
 		Map<String, String> dataMap = dataTable.asMap(String.class, String.class);
 		driver.findElement(By.cssSelector("input#input-firstname")).sendKeys(dataMap.get("firstname"));
 		driver.findElement(By.cssSelector("input[name=\"lastname\"]")).sendKeys(dataMap.get("lastname"));
-		System.out.println(getEmailWithTimeStamp());
 		driver.findElement(By.cssSelector("input[name=\"email\"]")).sendKeys(getEmailWithTimeStamp());
 		driver.findElement(By.cssSelector("input[name=\"telephone\"]")).sendKeys(dataMap.get("telephone"));
 		driver.findElement(By.cssSelector("input[id=\"input-password\"]")).sendKeys(dataMap.get("password"));
@@ -59,12 +53,6 @@ public class Register {
 
 	@Then("Account should get successfully created")
 	public void account_should_get_successfully_created() {
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		Assert.assertEquals(driver.findElement(By.cssSelector("div[id=\"content\"] h1")).getText(),
 				"Your Account Has Been Created!");
 	}
@@ -94,14 +82,12 @@ public class Register {
 		Assert.assertEquals(
 				driver.findElement(By.xpath("//input[@id=\"input-password\"]/following-sibling::div")).getText(),
 				"Password must be between 4 and 20 characters!");
-
 	}
 
 	@Then("Error should display for duplicate email address")
 	public void error_should_display_for_duplicate_email_address() {
 		Assert.assertTrue(driver.findElement(By.cssSelector("div[class*=\"alert-dismissible\"]")).getText()
-				.contains("Warning: E-Mail Address is already registered!"));
-		
+				.contains("Warning: E-Mail Address is already registered!"));	
 	}
 
 	public String getEmailWithTimeStamp() {

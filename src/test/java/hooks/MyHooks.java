@@ -14,7 +14,6 @@ public class MyHooks {
 	@Before
 	public void setup() {
 	Properties prop= ConfigReader.initializePropeties();
-	System.out.println(prop.getProperty("browser"));
 	DriverFactory.initializeBrowser(prop.getProperty("browser"));
 	driver = DriverFactory.getDriver();
 	driver.manage().deleteAllCookies();
