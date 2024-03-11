@@ -2,9 +2,7 @@ package hooks;
 
 import java.time.Duration;
 import java.util.Properties;
-
 import org.openqa.selenium.WebDriver;
-
 import factory.DriverFactory;
 import io.cucumber.java.*;
 import utils.ConfigReader;
