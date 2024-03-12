@@ -22,6 +22,12 @@ public class HomePage {
 	@FindBy(css="a[href*=\"account/register\"]")
 	private WebElement register;
 	
+	@FindBy(css="input[name=\"search\"]")
+	private WebElement searchBox; 
+	
+	@FindBy(css="i[class*=\"search\"]")
+	private WebElement searchButton;
+	
 	public void clickOnMyAccount() {
 		myAccount.click();
 	}
@@ -33,5 +39,12 @@ public class HomePage {
 	public void clickOnRegister() {
 		register.click();
 	}
+	
+	public void enterIntoSearchBox(String ProductName) {
+		searchBox.sendKeys(ProductName);
+	}
 
+	public void clickOnSearchButton() {
+		searchButton.click();
+	}
 }

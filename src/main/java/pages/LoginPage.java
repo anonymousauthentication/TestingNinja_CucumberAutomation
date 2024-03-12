@@ -23,7 +23,7 @@ public class LoginPage {
 	@FindBy(css="input[type=\"submit\"]")
 	private WebElement submitButton;
 	
-	@FindBy(xpath="//div[contains(@class,'alert')]")
+	@FindBy(css="div[class*=\"dismissible\"]")
 	private WebElement loginWarningMesssage;
 	
 	public void enterEmailAddress(String email) {
