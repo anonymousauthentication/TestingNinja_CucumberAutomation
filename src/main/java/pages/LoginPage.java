@@ -34,8 +34,9 @@ public class LoginPage {
 		passwordField.sendKeys(password);
 	}
 	
-	public void clickSubmitButton() {
+	public MyAccountPage clickSubmitButton() {
 		submitButton.click();
+		return new MyAccountPage(driver); 
 	}
 	
 	public String loginWarningMesssage() {

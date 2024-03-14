@@ -1,8 +1,6 @@
 package stepdefinition;
 
-import java.util.Date;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import factory.DriverFactory;
 import io.cucumber.java.en.*;
@@ -15,18 +13,21 @@ public class Login {
 
 	WebDriver driver;
 	LoginPage loginPage;
-
+	MyAccountPage myAccountPage;
+	CommonUtils commonutils;
+	DriverFactory driverfactory; 
+	
 	@Given("User have navigate to login page")
 	public void user_have_navigate_to_login_page() {
-		driver = DriverFactory.getDriver();
+		driverfactory = new DriverFactory();
+		driver = driverfactory.getDriver();
 		HomePage homepage = new HomePage(driver);
 		homepage.clickOnMyAccount();
-		homepage.clickOnLogin();
+		loginPage = homepage.clickOnLogin();
 	}
 
 	@When("User has enter valid email address {string}")
 	public void user_has_enter_valid_email_address(String email) {
-	    loginPage = new LoginPage(driver);
 		loginPage.enterEmailAddress(email);
 	}
 
@@ -37,19 +38,19 @@ public class Login {
 
 	@When("User click on login button")
 	public void user_click_on_login_button() {
-		loginPage.clickSubmitButton();
+		myAccountPage = loginPage.clickSubmitButton();
 	}
 
 	@Then("User should get successfully login")
 	public void user_should_get_successfully_login() {
-		MyAccountPage myAccountPage = new MyAccountPage(driver);
+		//MyAccountPage myAccountPage = new MyAccountPage(driver);
 		Assert.assertTrue(myAccountPage.statusofeditAccountInformation());
 	}
 
 	@When("User have enter invalid email")
 	public void user_have_enter_invalid_email() {
-		loginPage = new LoginPage(driver);
-		loginPage.enterEmailAddress((CommonUtils.getEmailWithTimeStamp()));
+	    commonutils = new CommonUtils();
+		loginPage.enterEmailAddress((commonutils.getEmailWithTimeStamp()));
 	}
 
 	@When("User have enter invalid password {string}")
@@ -70,7 +71,6 @@ public class Login {
 
 	@When("User dont enter any thing in input field")
 	public void user_dont_enter_any_thing_in_input_field() {
-		loginPage = new LoginPage(driver);
 		loginPage.enterEmailAddress("");
 		loginPage.enterPassword("");
 	}

@@ -15,23 +15,24 @@ import io.cucumber.datatable.DataTable;
 public class Register {
 	WebDriver driver;
 	private RegisterPage registerPage;
+	CommonUtils commonutils;
 
 	@Given("User Navigate to Register Account Page")
 	public void user_navigate_to_register_account_page() {
-		driver = DriverFactory.getDriver();
+		DriverFactory driverfactory = new DriverFactory();
+		driver = driverfactory.getDriver();
 		HomePage homePage = new HomePage(driver);
 		homePage.clickOnMyAccount();
-		homePage.clickOnRegister();
-		
+		registerPage = homePage.clickOnRegister();
 	}
 
 	@When("user enters below details into the fields")
 	public void user_enters_below_details_into_the_fields(DataTable dataTable) {
-	    registerPage = new RegisterPage(driver);
+	    commonutils = new CommonUtils();
 		Map<String, String> dataMap = dataTable.asMap(String.class, String.class);
 		registerPage.enterFirstName(dataMap.get("firstname"));
 		registerPage.enterLastName(dataMap.get("lastname"));
-		registerPage.enteremail(CommonUtils.getEmailWithTimeStamp());
+		registerPage.enteremail(commonutils.getEmailWithTimeStamp());
 		registerPage.enterTelephoneNo((dataMap.get("telephone")));
 		registerPage.enterPassword(dataMap.get("password"));
 		registerPage.enterConfirmPassword((dataMap.get("confirmPassowrd")));
@@ -39,7 +40,6 @@ public class Register {
 
 	@When("user enters below details into the fields with duplicate email")
 	public void user_enters_below_details_into_the_fields_with_duplicate_email(DataTable dataTable){
-		registerPage = new RegisterPage(driver);
 		Map<String, String> dataMap = dataTable.asMap(String.class, String.class);
 		registerPage.enterFirstName(dataMap.get("firstname"));
 		registerPage.enterLastName(dataMap.get("lastname"));
@@ -56,7 +56,6 @@ public class Register {
 
 	@When("Clicks on continue button")
 	public void clicks_on_continue_button() {
-		registerPage = new RegisterPage(driver);
 		registerPage.continueButtonClick();
 	}
 
@@ -74,7 +73,7 @@ public class Register {
 
 	@When("User dont enter details into any field")
 	public void user_dont_enter_details_into_any_field() {
-        registerPage = new RegisterPage(driver);
+      
 	}
 
 	@Then("Error validation message should come be displayed for all the mandetory field")

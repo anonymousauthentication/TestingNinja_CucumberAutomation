@@ -8,7 +8,7 @@ import java.nio.file.Files;
 import java.util.Properties;
 
 public class ConfigReader {
-	public static Properties initializePropeties() {
+	public  Properties initializePropeties() {
 		FileInputStream fis = null;
 		Properties prop;
 	    prop = new Properties();

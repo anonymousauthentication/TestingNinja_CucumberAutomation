@@ -12,22 +12,23 @@ public class Search {
 	WebDriver driver;
 	HomePage homePage;
 	SearchResultPage searchResultPage;
+	DriverFactory driverfactory;
 
 	@Given("open Application url")
 	public void open_application_url() {
-		driver = DriverFactory.getDriver();
+		driverfactory = new DriverFactory();
+		driver = driverfactory.getDriver();
 	}
 
 	@When("User enters valid product name {string}")
 	public void user_enters_valid_product_name(String productName) {
 		homePage = new HomePage(driver);
 		homePage.enterIntoSearchBox(productName);
-		searchResultPage = new SearchResultPage(driver);
 	}
 
 	@When("Click on search button")
 	public void click_on_search_button() {
-		homePage.clickOnSearchButton();
+		searchResultPage = homePage.clickOnSearchButton();
 	}
 
 	@Then("Valid product should get displayed in search result")

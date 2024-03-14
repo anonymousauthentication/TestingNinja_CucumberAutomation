@@ -32,19 +32,22 @@ public class HomePage {
 		myAccount.click();
 	}
 	
-	public void clickOnLogin() {
+	public LoginPage clickOnLogin() {
 		login.click();
+		return new LoginPage(driver);
 	}
 	
-	public void clickOnRegister() {
+	public RegisterPage clickOnRegister() {
 		register.click();
+		return new RegisterPage(driver);
 	}
 	
 	public void enterIntoSearchBox(String ProductName) {
 		searchBox.sendKeys(ProductName);
 	}
 
-	public void clickOnSearchButton() {
+	public SearchResultPage clickOnSearchButton() {
 		searchButton.click();
+		return   new SearchResultPage(driver);
 	}
 }
