@@ -1,7 +1,9 @@
 package hooks;
 
-import java.time.Duration;
 import java.util.Properties;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import factory.DriverFactory;
 import io.cucumber.java.*;
@@ -21,7 +23,13 @@ public class MyHooks {
 	}
 	
 	@After
-	public void teardown() {
+	public void teardown(Scenario scenario) {
+		String scenarioName = scenario.getName().replace(" " , "_");
+		if(scenario.isFailed()) {
+			TakesScreenshot screenShot = (TakesScreenshot) driver;
+		byte[] ss=	screenShot.getScreenshotAs(OutputType.BYTES);
+		scenario.attach(ss, "image/png", scenarioName);
+		}
 		driver.quit();
 	}
 }

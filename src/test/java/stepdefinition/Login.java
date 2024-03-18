@@ -26,12 +26,12 @@ public class Login {
 		loginPage = homepage.clickOnLogin();
 	}
 
-	@When("User has enter valid email address {string}")
+	@When("^User has enter valid email address (.+)$")
 	public void user_has_enter_valid_email_address(String email) {
 		loginPage.enterEmailAddress(email);
 	}
 
-	@When("User has enter valid passsword {string}")
+	@When("^User has enter valid passsword (.+)$")
 	public void user_has_enter_valid_passsword(String password) {
 		loginPage.enterPassword(password);
 	}
