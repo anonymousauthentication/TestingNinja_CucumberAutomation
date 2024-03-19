@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utils.CommonUtils;
 import utils.ElementUtils;
 
 public class RegisterPage {
@@ -66,7 +67,7 @@ public class RegisterPage {
 	private WebElement passwordWarning;
 
 	public void enterFirstName(String firstName) {
-		elementUtils.typeTextIntoElement(firstNameField, 0, firstName);
+		elementUtils.typeTextIntoElement(firstNameField, CommonUtils.EXPLICITE_WAIT_TIME, firstName);
 	}
 
 	public void enterLastName(String lastName) {
@@ -86,47 +87,47 @@ public class RegisterPage {
 	}
 
 	public void enterConfirmPassword(String confirmPassword) {
-		elementUtils.typeTextIntoElement(confirmPasswordField, 0, confirmPassword);
+		elementUtils.typeTextIntoElement(confirmPasswordField, CommonUtils.EXPLICITE_WAIT_TIME, confirmPassword);
 	}
 
 	public void privacyPolicyClick() {
-		elementUtils.clickOnElement(privacyPolicy, 0);
+		elementUtils.clickOnElement(privacyPolicy, CommonUtils.EXPLICITE_WAIT_TIME);
 	}
 
 	public void continueButtonClick() {
-		elementUtils.clickOnElement(continueButton, 0);
+		elementUtils.clickOnElement(continueButton, CommonUtils.EXPLICITE_WAIT_TIME);
 	}
 
 	public void clickyesToNewsLetter() {
-		elementUtils.clickOnElement(yesToNewsLetter, 0);
+		elementUtils.clickOnElement(yesToNewsLetter, CommonUtils.EXPLICITE_WAIT_TIME);
 	}
 
 	public String getduplicateEmailError() {
-		return elementUtils.getTextFromElement(duplicateEmailError, 0);
+		return elementUtils.getTextFromElement(duplicateEmailError, CommonUtils.EXPLICITE_WAIT_TIME);
 	}
 
 	public Boolean getPrivacyPolicuWarning() {
-		return elementUtils.displayStatusOfElement(privacyPolicuWarning, 0);
+		return elementUtils.displayStatusOfElement(privacyPolicuWarning, CommonUtils.EXPLICITE_WAIT_TIME);
 	}
 
 	public String getFirstnameWarning() {
-		return elementUtils.getTextFromElement(firstnameWarning, 0);
+		return elementUtils.getTextFromElement(firstnameWarning, CommonUtils.EXPLICITE_WAIT_TIME);
 	}
 
 	public String getLastnameWarning() {
-		return elementUtils.getTextFromElement(lastNameWarning, 0);
+		return elementUtils.getTextFromElement(lastNameWarning, CommonUtils.EXPLICITE_WAIT_TIME);
 	}
 
 	public String getEmailWarning() {
-		return elementUtils.getTextFromElement(emailWarning, 0);
+		return elementUtils.getTextFromElement(emailWarning, CommonUtils.EXPLICITE_WAIT_TIME);
 	}
 
 	public String getTelephoneWarning() {
-		return elementUtils.getTextFromElement(telephoneWarning, 0);
+		return elementUtils.getTextFromElement(telephoneWarning, CommonUtils.EXPLICITE_WAIT_TIME);
 	}
 
 	public String getPasswordWarning() {
-		return elementUtils.getTextFromElement(passwordWarning, 0);
+		return elementUtils.getTextFromElement(passwordWarning, CommonUtils.EXPLICITE_WAIT_TIME);
 	}
 
 }

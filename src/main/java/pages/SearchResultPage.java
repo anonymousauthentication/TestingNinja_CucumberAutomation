@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utils.CommonUtils;
 import utils.ElementUtils;
 
 public class SearchResultPage {
@@ -23,10 +24,10 @@ public class SearchResultPage {
 	private WebElement errorForNoProduct;
 
 	public Boolean searchproductPresent() {
- 	   return elementUtils.displayStatusOfElement(searchProduct, 0);
+ 	   return elementUtils.displayStatusOfElement(searchProduct, CommonUtils.EXPLICITE_WAIT_TIME);
 	}
 
 	public String errorForNoSearchProduct() {
-		return elementUtils.getTextFromElement(errorForNoProduct, 0);
+		return elementUtils.getTextFromElement(errorForNoProduct, CommonUtils.EXPLICITE_WAIT_TIME);
 	}
 }

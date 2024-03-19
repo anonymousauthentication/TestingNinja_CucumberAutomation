@@ -34,7 +34,6 @@ public class Search {
 	@Then("Valid product should get displayed in search result")
 	public void valid_product_should_get_displayed_in_search_result() {
 		Assert.assertTrue(searchResultPage.searchproductPresent());
-		Assert.fail();
 	}
 
 	@When("User enters the non-existing product in search box {string}")
