@@ -5,10 +5,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utils.ElementUtils;
+
 public class SearchResultPage {
 	WebDriver driver;
-
+    private ElementUtils elementUtils;
 	public SearchResultPage(WebDriver driver) {
+		elementUtils = new ElementUtils(driver);
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
@@ -20,10 +23,10 @@ public class SearchResultPage {
 	private WebElement errorForNoProduct;
 
 	public Boolean searchproductPresent() {
-		return searchProduct.isDisplayed();
+ 	   return elementUtils.displayStatusOfElement(searchProduct, 0);
 	}
 
 	public String errorForNoSearchProduct() {
-		return errorForNoProduct.getText();
+		return elementUtils.getTextFromElement(errorForNoProduct, 0);
 	}
 }

@@ -5,10 +5,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utils.ElementUtils;
+
 public class MyAccountPage {
 	WebDriver driver;
-	
+	private ElementUtils elementUtils;
 	public MyAccountPage(WebDriver driver) {
+		 elementUtils =  new ElementUtils(driver);
 		this.driver=driver;
 	    PageFactory.initElements(driver, this);
 	}
@@ -17,6 +20,6 @@ public class MyAccountPage {
 	private WebElement editAccountInformation;
 	
 	public boolean statusofeditAccountInformation() {
-		return editAccountInformation.isDisplayed();
+		return	elementUtils.displayStatusOfElement(editAccountInformation, 30);
 	}
 }

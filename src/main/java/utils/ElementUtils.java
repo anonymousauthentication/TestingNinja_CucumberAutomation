@@ -98,4 +98,19 @@ public class ElementUtils {
 	JavascriptExecutor jse = ((JavascriptExecutor) driver);
 	jse.executeScript("argument[0].value='"+stringToType+"'", webElement);
 	}
+	
+	public String getTextFromElement(WebElement element, long durationInSecond) {
+		WebElement webElement = waitForElement(element, durationInSecond);
+		return webElement.getText();
+	}
+	
+	public boolean displayStatusOfElement(WebElement element, long durationInSecond) {
+		try {
+		WebElement webElement = waitForVisibility(element, durationInSecond);
+		return webElement.isDisplayed();
+		} catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
 }

@@ -5,11 +5,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utils.ElementUtils;
+
 public class AccountSuccessPage {
 	
 	WebDriver driver;
-	
+	private ElementUtils elementUtils;
 	public AccountSuccessPage(WebDriver driver) {
+		elementUtils = new ElementUtils(driver);
 		this.driver=driver;
         PageFactory.initElements(driver, this);
 	}
@@ -18,6 +21,6 @@ public class AccountSuccessPage {
 	private WebElement accountSuccessfulMessage;
 	
 	public String getSuccessfulMessage() {
-		return accountSuccessfulMessage.getText();
+		return elementUtils.getTextFromElement(accountSuccessfulMessage, 30);
 	}
 }

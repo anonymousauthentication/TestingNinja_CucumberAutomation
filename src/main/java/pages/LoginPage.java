@@ -5,11 +5,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utils.ElementUtils;
+
 public class LoginPage {
 	
 	WebDriver driver;
-	
+	private ElementUtils elementUtils;
 	public LoginPage(WebDriver driver) {
+		elementUtils = new ElementUtils(driver);
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
 	}
@@ -27,19 +30,20 @@ public class LoginPage {
 	private WebElement loginWarningMesssage;
 	
 	public void enterEmailAddress(String email) {
-		emailField.sendKeys(email);
+		elementUtils.typeTextIntoElement(emailField, 30, email);
 	}
 	
 	public void enterPassword(String password) {
-		passwordField.sendKeys(password);
+		elementUtils.typeTextIntoElement(passwordField, 30, password);
 	}
 	
 	public MyAccountPage clickSubmitButton() {
-		submitButton.click();
+		elementUtils.clickOnElement(submitButton, 30);
 		return new MyAccountPage(driver); 
 	}
 	
 	public String loginWarningMesssage() {
-		return loginWarningMesssage.getText();
+     return elementUtils.getTextFromElement(loginWarningMesssage, 30);
+
 	}
 }

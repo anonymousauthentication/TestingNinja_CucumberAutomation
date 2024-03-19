@@ -5,11 +5,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utils.ElementUtils;
+
 public class RegisterPage {
 
 	WebDriver driver;
-
+    private ElementUtils elementUtils;
 	public RegisterPage(WebDriver driver) {
+		elementUtils = new ElementUtils(driver);
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
@@ -63,67 +66,67 @@ public class RegisterPage {
 	private WebElement passwordWarning;
 
 	public void enterFirstName(String firstName) {
-		firstNameField.sendKeys(firstName);
+		elementUtils.typeTextIntoElement(firstNameField, 0, firstName);
 	}
 
 	public void enterLastName(String lastName) {
-		lastNameField.sendKeys(lastName);
+		elementUtils.typeTextIntoElement(lastNameField, 0, lastName);
 	}
 
 	public void enteremail(String email) {
-		emailField.sendKeys(email);
+		elementUtils.typeTextIntoElement(emailField, 0, email);
 	}
 
 	public void enterTelephoneNo(String telephoneNo) {
-		telephoneField.sendKeys(telephoneNo);
+		elementUtils.typeTextIntoElement(telephoneField, 0, telephoneNo);
 	}
 
 	public void enterPassword(String password) {
-		passwordField.sendKeys(password);
+		elementUtils.typeTextIntoElement(passwordField, 0, password);
 	}
 
 	public void enterConfirmPassword(String confirmPassword) {
-		confirmPasswordField.sendKeys(confirmPassword);
+		elementUtils.typeTextIntoElement(confirmPasswordField, 0, confirmPassword);
 	}
 
 	public void privacyPolicyClick() {
-		privacyPolicy.click();
+		elementUtils.clickOnElement(privacyPolicy, 0);
 	}
 
 	public void continueButtonClick() {
-		continueButton.click();
+		elementUtils.clickOnElement(continueButton, 0);
 	}
 
 	public void clickyesToNewsLetter() {
-		yesToNewsLetter.click();
+		elementUtils.clickOnElement(yesToNewsLetter, 0);
 	}
 
 	public String getduplicateEmailError() {
-		return duplicateEmailError.getText();
+		return elementUtils.getTextFromElement(duplicateEmailError, 0);
 	}
 
 	public Boolean getPrivacyPolicuWarning() {
-		return privacyPolicuWarning.isDisplayed();
+		return elementUtils.displayStatusOfElement(privacyPolicuWarning, 0);
 	}
 
 	public String getFirstnameWarning() {
-		return firstnameWarning.getText();
+		return elementUtils.getTextFromElement(firstnameWarning, 0);
 	}
 
 	public String getLastnameWarning() {
-		return lastNameWarning.getText();
+		return elementUtils.getTextFromElement(lastNameWarning, 0);
 	}
 
 	public String getEmailWarning() {
-		return emailWarning.getText();
+		return elementUtils.getTextFromElement(emailWarning, 0);
 	}
 
 	public String getTelephoneWarning() {
-		return telephoneWarning.getText();
+		return elementUtils.getTextFromElement(telephoneWarning, 0);
 	}
 
 	public String getPasswordWarning() {
-		return passwordWarning.getText();
+		return elementUtils.getTextFromElement(passwordWarning, 0);
 	}
 
 }
