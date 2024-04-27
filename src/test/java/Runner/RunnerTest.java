@@ -12,6 +12,6 @@ import io.cucumber.junit.CucumberOptions;
                   plugin={"pretty","html:target/CucumberReports/CucumberReport.html"})
  //pretty use for to format output of cucumber output 
  // html use for to create  html report of cucumber test
-public class MyRunner {
+public class RunnerTest {
 
 }

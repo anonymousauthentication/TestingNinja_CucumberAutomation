@@ -1,6 +1,6 @@
 package stepdefinition;
 
-import org.junit.Assert;
+import org.testng.Assert;
 import org.openqa.selenium.WebDriver;
 import factory.DriverFactory;
 import io.cucumber.java.en.*;
